@@ -1,4 +1,4 @@
-package pro.sky.homework2_14.IntegerListClassHW16;
+package pro.sky.homework2_14.IntListPart3HW16;
 
 public class IntegerListTestConstants {
     public static final Integer[] ARRAY_LIST = new Integer[]{0, 1, 2, 3, 0, 4};

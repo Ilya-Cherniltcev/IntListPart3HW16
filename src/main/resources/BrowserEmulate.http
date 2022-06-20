@@ -13,10 +13,10 @@ http://localhost:8080/add?number=4
 http://localhost:8080/add?number=5
 
 ###
-http://localhost:8080/set?id=0&number=820
+http://localhost:8080/set?id=2&number=82
 
 ###
-http://localhost:8080/set?id=0&number=555
+http://localhost:8080/set?id=5&number=555
 
 ###
 http://localhost:8080/set?id=-1&number=999
@@ -27,7 +27,7 @@ http://localhost:8080/addindex?id=0&number=0
 
 ###
 
-http://localhost:8080/removeid?id=0
+http://localhost:8080/removeid?id=3
 
 ###
 http://localhost:8080/remove?number=82

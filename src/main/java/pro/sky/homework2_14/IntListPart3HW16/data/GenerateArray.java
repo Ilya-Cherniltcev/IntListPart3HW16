@@ -1,4 +1,4 @@
-package pro.sky.homework2_14.IntegerListClassHW16.data;
+package pro.sky.homework2_14.IntListPart3HW16.data;
 
 public class GenerateArray {
 

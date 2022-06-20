@@ -1,4 +1,4 @@
-package pro.sky.homework2_14.IntegerListClassHW16.interfaces;
+package pro.sky.homework2_14.IntListPart3HW16.interfaces;
 
 public interface IntegerList {
 

@@ -1,15 +1,15 @@
-package pro.sky.homework2_14.IntegerListClassHW16.controller;
+package pro.sky.homework2_14.IntListPart3HW16.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pro.sky.homework2_14.IntegerListClassHW16.interfaces.IntegerList;
+import pro.sky.homework2_14.IntListPart3HW16.interfaces.IntegerList;
 
 @RestController
-public class IntegerListController {
+public class IntListController {
     private final IntegerList integerList;
 
-    public IntegerListController(IntegerList integerList) {
+    public IntListController(IntegerList integerList) {
         this.integerList = integerList;
     }
 
