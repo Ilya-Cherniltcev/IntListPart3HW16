@@ -37,7 +37,7 @@ public class IntegerListImpl implements IntegerList {
 
     // *****  расширяем массив в 1.5 раза *****
     private void grow() {
-        int l = (int)(strList.length * 1.5);
+        int l = (int) (strList.length * 1.5);
         strList = Arrays.copyOf(strList, l);
     }
 
@@ -118,7 +118,7 @@ public class IntegerListImpl implements IntegerList {
         validateEmptyArray();
         validateIndex(index);
         Integer item = strList[index];
-      //  length--;
+        //  length--;
         // ***************** если удаляемый элемент на любой другой позиции, кроме 0 позиции ********
         if (index != 0) {
             Integer[] firstPart = new Integer[index];
@@ -126,14 +126,14 @@ public class IntegerListImpl implements IntegerList {
             int lastLength = length - index - 1;
             Integer[] lastPart = new Integer[lastLength];
             System.arraycopy(strList, index + 1, lastPart, 0, lastLength);
-           // strList = new Integer[length];
+            // strList = new Integer[length];
             System.arraycopy(firstPart, 0, strList, 0, firstPart.length);
             System.arraycopy(lastPart, 0, strList, index, lastLength);
         } else {
             // ***************** если удаляемый элемент на 0 позиции ********
-            Integer[] lastPart = new Integer[length-1];
+            Integer[] lastPart = new Integer[length - 1];
             System.arraycopy(strList, 1, lastPart, 0, lastPart.length);
-           // strList = new Integer[length];
+            // strList = new Integer[length];
             System.arraycopy(lastPart, 0, strList, 0, lastPart.length);
         }
         length--;
@@ -144,20 +144,27 @@ public class IntegerListImpl implements IntegerList {
     @Override
     public boolean contains(Integer item) {
         validateEmptyArray();
-        int element = item.intValue();
-        //  ---- возвращаем отсортированный методом вставки массив  -----
-        Integer[] sortArr = sortArrayByInserting();
+        int element = (int) item;
+        //  ---- возвращаем отсортированный массив. Методом - сортировка слиянием   -----
+        int[] sortArr = new int[length];
+        int[] strListInt = Arrays.stream(strList)
+                .mapToInt(Integer::intValue)
+                .limit(length)
+                .toArray();
+        System.arraycopy(strListInt, 0, sortArr, 0, length);
+        mergeSort(sortArr);
         boolean isExist = binarySearch(sortArr, element);
         return isExist;
     }
 
-    private boolean binarySearch(Integer[] sortArr, int element) {
+    private boolean binarySearch(int[] sortArr, int element) {
         // ++++++++++   метод бинарного поиска +++++++
         int min = 0;
         int max = sortArr.length - 1;
         while (min <= max) {
             int middle = (min + max) / 2;
-            int sortArrMid = sortArr[middle].intValue();
+            // int sortArrMid = sortArr[middle].intValue();
+            int sortArrMid = sortArr[middle];
             if (element == sortArrMid) {
                 return true;
             }
@@ -247,7 +254,7 @@ public class IntegerListImpl implements IntegerList {
     // Удалить все элементы из списка.
     @Override
     public void clear() {
-         strList = new Integer[15];
+        strList = new Integer[15];
         length = 0;
     }
 
@@ -281,9 +288,57 @@ public class IntegerListImpl implements IntegerList {
         return Arrays.toString(tempList);
     }
 
+    //=======================================================================
+    //=======================================================================
+    //=======================================================================
+    //==============                СОРТИРОВКИ              ================
+    //======================================================================
+    //======================================================================
+    // ***** метод сортировки 0-й ****************
+    // ******     СОРТИРОВКА  СЛИЯНИЕМ    ***********************
+    public void mergeSort(int[] arr) {
+        if (arr.length < 2) {
+            return;
+        }
+        int mid = arr.length / 2;
+        int[] left = new int[mid];
+        int[] right = new int[arr.length - mid];
+
+        for (int i = 0; i < left.length; i++) {
+            left[i] = arr[i];
+        }
+
+        for (int i = 0; i < right.length; i++) {
+            right[i] = arr[mid + i];
+        }
+
+        mergeSort(left);
+        mergeSort(right);
+
+        merge(arr, left, right);
+    }
+
+    public static void merge(int[] arr, int[] left, int[] right) {
+        int mainP = 0;
+        int leftP = 0;
+        int rightP = 0;
+        while (leftP < left.length && rightP < right.length) {
+            if (left[leftP] <= right[rightP]) {
+                arr[mainP++] = left[leftP++];
+            } else {
+                arr[mainP++] = right[rightP++];
+            }
+        }
+        while (leftP < left.length) {
+            arr[mainP++] = left[leftP++];
+        }
+        while (rightP < right.length) {
+            arr[mainP++] = right[rightP++];
+        }
+    }
 
     // ***** метод сортировки 1-й ******************* (в сгенерировнном массиве) ****
-    // ******   СОРТИРОВКА ВСТАВКОЙ - самый быстрый метод !!! ***********************
+    // ******   СОРТИРОВКА ВСТАВКОЙ  ***********************
     public Integer[] sortArrayByInserting() {
         Integer[] sortedArray = new Integer[length];
         System.arraycopy(strList, 0, sortedArray, 0, length);

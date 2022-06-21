@@ -95,8 +95,20 @@ class IntegerListTests {
     }
 
     @Test
-    void shouldReturnTrueIfElementIsExist() {
+    void shouldReturnTrueIfElement1IsExist() {
         boolean actual = integerList.contains(1);
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void shouldReturnTrueIfElement2IsExist() {
+        boolean actual = integerList.contains(2);
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void shouldReturnTrueIfElemen0IsExist() {
+        boolean actual = integerList.contains(0);
         Assertions.assertTrue(actual);
     }
 
