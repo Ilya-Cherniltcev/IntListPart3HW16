@@ -8,11 +8,11 @@
         <version>2.7.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>pro.sky.homework2_15</groupId>
-    <artifactId>IntegerListClassHW16</artifactId>
+    <groupId>pro.sky.homework2_16</groupId>
+    <artifactId>IntListPart3HW16</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>IntegerListClassHW16</name>
-    <description>IntegerListClassHW16</description>
+    <name>IntListPart3HW16</name>
+    <description>IntListPart3HW16</description>
     <properties>
         <java.version>17</java.version>
     </properties>

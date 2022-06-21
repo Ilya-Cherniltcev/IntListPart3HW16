@@ -1,4 +1,4 @@
-package pro.sky.homework2_14.IntegerListClassHW16;
+package pro.sky.homework2_14.IntListPart3HW16;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,16 +1,16 @@
-package pro.sky.homework2_14.IntegerListClassHW16;
+package pro.sky.homework2_14.IntListPart3HW16;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import pro.sky.homework2_14.IntegerListClassHW16.exceptions.AbsentElementException;
-import pro.sky.homework2_14.IntegerListClassHW16.exceptions.EmptyArrayException;
-import pro.sky.homework2_14.IntegerListClassHW16.exceptions.IndexOutOfArrayException;
-import pro.sky.homework2_14.IntegerListClassHW16.services.IntegerListImpl;
+import pro.sky.homework2_14.IntListPart3HW16.exceptions.AbsentElementException;
+import pro.sky.homework2_14.IntListPart3HW16.exceptions.EmptyArrayException;
+import pro.sky.homework2_14.IntListPart3HW16.exceptions.IndexOutOfArrayException;
+import pro.sky.homework2_14.IntListPart3HW16.services.IntegerListImpl;
 
-import static pro.sky.homework2_14.IntegerListClassHW16.IntegerListTestConstants.*;
+import static pro.sky.homework2_14.IntListPart3HW16.IntegerListTestConstants.*;
 
 @SpringBootTest
 class IntegerListTests {
@@ -95,8 +95,20 @@ class IntegerListTests {
     }
 
     @Test
-    void shouldReturnTrueIfElementIsExist() {
+    void shouldReturnTrueIfElement1IsExist() {
         boolean actual = integerList.contains(1);
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void shouldReturnTrueIfElement2IsExist() {
+        boolean actual = integerList.contains(2);
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void shouldReturnTrueIfElemen0IsExist() {
+        boolean actual = integerList.contains(0);
         Assertions.assertTrue(actual);
     }
 
